@@ -17,12 +17,13 @@ package simpark
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import viabilitree.model._
 import scala.math._
+import viabilitree.model._
+
 
 case class Lake(
-                 integrationStep: Double = 0.01,
-                 timeStep: Double = 0.1,
+                 integrationStep: Double = 100.0,
+                 timeStep: Double = 2000.0,
                  b: Double = 0.8,
                  r: Double = 1.0,
                  m: Double = 1.0) {

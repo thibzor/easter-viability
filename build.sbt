@@ -11,4 +11,6 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 
 libraryDependencies += "fr.iscpif.viabilitree" %% "export" % viabilitreeVersion
 libraryDependencies += "fr.iscpif.viabilitree" %% "viability" % viabilitreeVersion
+libraryDependencies += "fr.iscpif.viabilitree" %% "model" % viabilitreeVersion
+
 
