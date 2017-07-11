@@ -22,8 +22,8 @@ import viabilitree.model._
 
 
 case class Lake(
-                 integrationStep: Double = 100.0,
-                 timeStep: Double = 2000.0,
+                 integrationStep: Double = 0.1,
+                 timeStep: Double = 0.1,
                  b: Double = 0.8,
                  r: Double = 1.0,
                  m: Double = 1.0) {
