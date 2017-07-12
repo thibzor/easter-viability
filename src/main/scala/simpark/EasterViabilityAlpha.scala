@@ -12,31 +12,25 @@ object EasterViabilityAlpha extends App {
 
   val eI = easterIslandAlphaControl()
   val rng = new util.Random(42)
-  /*
-  val pointA=Vector(1500.0,1200.0,150.0)
 
-  val u2=Vector(0.0)
-  val pointB=eI.dynamic(pointA,u2)
-  println(pointB)
-  */
+  //In this part, only alpha  is a control
+  val scale = 0.000001
+  val minControl = 0.99 * scale
+  val maxControl = 1 * scale
+  val step = (maxControl - minControl) * 1.0 / 3.0
 
-  val vk = KernelComputation(
+  // number of steps for the set of controls is small: valueMax - valueMin
+  var vk: KernelComputation = KernelComputation(
     dynamic = eI.dynamic,
     depth = 18,
-    zone = Vector((1100.0, 32800.0), (2000.0, 12000.0)), //set of constraints
-    //controls, first on alpha, second on s, third on c.
-    controls = Vector((0.0000005 to 0.000001 by 0.0000005))
+    zone = Vector((450.0, 32800.0), (1200.0, 12000.0), (0.0, 5000.0)), //set of constraints
+    //control : only on alpha
+    controls = Vector((minControl to maxControl by step))
   )
-  val keyWord = "Alpha"
-  //keyWord = "AlphaAndS"
-  //keyWord = "AlphaAndSAndC"
+  val keyWord = "AlphaminA"+minControl+"maxA"+maxControl+"40ts"
 
   val (ak, steps) = approximate(vk, rng)
-
   println(steps)
-  //println(vk.controls(1))
   saveVTK3D(ak, "/tmp/EI"+vk.depth+keyWord+".vtk")
-
-  //println(volume(res))
 
 }
