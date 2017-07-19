@@ -5,8 +5,8 @@ import viabilitree.model.Dynamic
 /**
   * Created by thibaut on 09/05/17.
   */
-case class easterIslandAlphaControl(integrationStep: Double = 10,
-                                    timeStep: Double = 40,
+case class easterIslandAlphaControl(integrationStep: Double = 1,
+                                    timeStep: Double = 300,
                                     b: Double = 0.002,
                                     d: Double = 0.012,
                                     r: Double = 0.004,

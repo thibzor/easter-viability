@@ -12,7 +12,7 @@ object EasterViabilityAlpha extends App {
 
   val eI = easterIslandAlphaControl()
   val rng = new util.Random(42)
-
+  //println(eI.integrationStep+"-"+eI.timeStep)
   //In this part, only alpha  is a control
   val scale = 0.000001
   val minControl = 0.99 * scale
@@ -27,7 +27,7 @@ object EasterViabilityAlpha extends App {
     //control : only on alpha
     controls = Vector((minControl to maxControl by step))
   )
-  val keyWord = "AlphaminA"+minControl+"maxA"+maxControl+"40ts"
+  val keyWord = "AlphaminA"+minControl+"maxA"+maxControl+eI.timeStep+"Ts-Is"+eI.integrationStep
 
   val (ak, steps) = approximate(vk, rng)
   println(steps)
