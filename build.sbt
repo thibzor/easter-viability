@@ -3,7 +3,7 @@ name := "easter-viability"
 
 scalaVersion := "2.12.2"
 
-def viabilitreeVersion = "2.0-alpha3"
+def viabilitreeVersion = "2.0-alpha5"
 //def viabilitreeVersion = "2.0-SNAPSHOT"
 
 resolvers += Resolver.sonatypeRepo("public")
